@@ -27,5 +27,6 @@ urlpatterns = [
 
 
 
-    path('MVision/', include('MVision.urls'))  #when we hit the MVision then we transper control to app MVision 
+    path('MVision/', include('MVision.urls')),  #when we hit the MVision then we transper control to app MVision 
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
