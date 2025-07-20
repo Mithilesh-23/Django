@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path, include # include use for transfer the path
 from .import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -29,4 +32,4 @@ urlpatterns = [
 
     path('MVision/', include('MVision.urls')),  #when we hit the MVision then we transper control to app MVision 
     path("__reload__/", include("django_browser_reload.urls")),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
